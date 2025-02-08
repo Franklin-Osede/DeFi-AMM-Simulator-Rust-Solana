@@ -39,3 +39,15 @@ variable "db_name" {
   type        = string
   default     = "amm_simulator"
 }
+
+# AWS S3 Bucket for Terraform State
+variable "s3_bucket_name" {
+  description = "S3 bucket name to store Terraform state"
+  type        = string
+}
+
+# AWS DynamoDB Table for Terraform Locking
+variable "dynamodb_table_name" {
+  description = "DynamoDB table for Terraform state locking"
+  type        = string
+}
