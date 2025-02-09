@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "aws_profile" {
   description = "AWS CLI profile to use"
   type        = string
-  default     = "terraform"
+  default     = "default"
 }
 
 variable "aws_account_id" {
@@ -15,38 +15,35 @@ variable "aws_account_id" {
   type        = string
 }
 
-# 🔹 Database Variables (ADD THESE)
 variable "db_username" {
   description = "The username for the PostgreSQL database"
   type        = string
-  sensitive   = true # Hides it from Terraform output
+  sensitive   = true
 }
 
 variable "db_password" {
   description = "The password for the PostgreSQL database"
   type        = string
-  sensitive   = true # Hides it from Terraform output
+  sensitive   = true
 }
 
 variable "db_instance_class" {
   description = "The instance type of the RDS database"
   type        = string
-  default     = "db.t3.micro" # Smallest free-tier instance
+  default     = "db.t3.micro"
 }
 
 variable "db_name" {
   description = "The name of the PostgreSQL database"
   type        = string
-  default     = "amm_simulator"
+  default     = "ammsimulator"
 }
 
-# AWS S3 Bucket for Terraform State
 variable "s3_bucket_name" {
   description = "S3 bucket name to store Terraform state"
   type        = string
 }
 
-# AWS DynamoDB Table for Terraform Locking
 variable "dynamodb_table_name" {
   description = "DynamoDB table for Terraform state locking"
   type        = string
